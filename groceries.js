@@ -21,6 +21,13 @@ function getCookie(cname) {
     }
     return "";
 }
+function removeParentListItem()
+{
+  var mom = this.parentNode;
+  var grandma = mom.parentNode;
+  grandma.removeChild(mom);
+
+}
 function addItem()
 {
   var input = document.getElementById("newItem").value;
@@ -28,6 +35,7 @@ function addItem()
   var item = document.createElement("li");
   var iconClose = document.createElement("span");
   var btnClose = document.createElement("button");
+  btnClose.addEventListener("click", removeParentListItem);
   iconClose.classList.add("glyphicon");
   iconClose.classList.add("glyphicon-remove");
   btnClose.appendChild(iconClose);
