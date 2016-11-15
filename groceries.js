@@ -26,6 +26,15 @@ function addItem()
   var input = document.getElementById("newItem").value;
   var list = document.getElementById("listDisplay");
   var item = document.createElement("li");
+  var iconClose = document.createElement("span");
+  var btnClose = document.createElement("button");
+  iconClose.classList.add("glyphicon");
+  iconClose.classList.add("glyphicon-remove");
+  btnClose.appendChild(iconClose);
+  btnClose.classList.add("btn");
+  btnClose.classList.add("btn-danger");
+  btnClose.classList.add("btn-xs");
+  item.appendChild(btnClose);
   var itemName =  document.createTextNode(input);
   item.appendChild(itemName);
   list.appendChild(item);
