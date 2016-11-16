@@ -1,5 +1,6 @@
 
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
+var myList = [];
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -43,7 +44,16 @@ function addItem()
   btnClose.classList.add("btn-danger");
   btnClose.classList.add("btn-xs");
   item.appendChild(btnClose);
+  /*for(var i = 0; i > myList.length; i++)
+  {*/
   var itemName =  document.createTextNode(input);
+  var vari = myList.indexOf(input);
+  if(vari == -1)
+  {
+    myList.push(input);
+    console.log(myList);
+  }
+  //}
   item.appendChild(itemName);
   list.appendChild(item);
   document.getElementById("newItem").value = "";
