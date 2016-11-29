@@ -22,6 +22,24 @@ function getCookie(cname) {
     }
     return "";
 }
+function saveList()
+{
+  var save = myList.toString();
+  setCookie("saveCook", save, 3);
+  getCookie("saveCook");
+}
+function clearList()
+{
+  document.getElementById("listDisplay").value = "";
+  for(var i = 0; i <= myList.length; i++)
+  {
+    myList.pop();
+  }
+  for(var i = 0; i <= myList.length; i++)
+  {
+    console.log(myList);
+  }
+}
 function removeParentListItem()
 {
   var mom = this.parentNode;
