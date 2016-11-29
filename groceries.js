@@ -35,10 +35,8 @@ function clearList()
   {
     myList.pop();
   }
-  for(var i = 0; i <= myList.length; i++)
-  {
+
     console.log(myList);
-  }
 }
 function removeParentListItem()
 {
