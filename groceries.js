@@ -1,5 +1,6 @@
 
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
+window.onload = loadCookieList;
 var myList = [];
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -28,6 +29,23 @@ function saveList()
   setCookie("saveCook", save, 3);
   getCookie("saveCook");
 }
+function displayItem(input)
+{
+  var comp = input;
+  var bool = false;
+  for(var i=0; i <= myList.length; i++)
+  {
+    if(comp != myList[i])
+    {
+      bool = true;
+    }
+  }
+  if(bool == true)
+  {
+    myList.push(input);
+  }
+
+}
 function clearList()
 {
   document.getElementById("listDisplay").value = "";
@@ -47,6 +65,16 @@ function removeParentListItem()
   var itemIndex = myList.indexOf(itemRemove);
   myList.splice(itemIndex,1);
   console.log(myList);
+
+}
+function loadCookieList()
+{
+  var cook = getCookie("saveCook");
+  var arrayCookie = cook.split(" ");
+  for(var i=0; i < arrayCookie.length; i++)
+  {
+    displayItem(arrayCookie[i]);
+  }
 
 }
 function addItem()
@@ -77,6 +105,6 @@ function addItem()
   item.appendChild(itemName);
   list.appendChild(item);
   document.getElementById("newItem").value = "";
-
+  displayItem(input);
 
 }
